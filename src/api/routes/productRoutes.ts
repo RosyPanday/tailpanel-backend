@@ -1,12 +1,9 @@
-const uploadRoutes = Router();
+import { Router } from "express";
 
-uploadRoutes.post(
-  "/therapist-document",
-  (req, res, next) => {
-    contextHandler({ req, res, next });
-  },
-  uploadTherapistDocuments,
-  UploadController.uploadTherapistDocument,
+const productRoutes = Router();
+
+productRoutes.post(
+
 );
 
-export default uploadRoutes;
+export default productRoutes;
