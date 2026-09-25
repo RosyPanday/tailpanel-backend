@@ -48,6 +48,6 @@
   "include": [
     "src/**/*",
     "config.cjs",
-    "migrations/*.js"
-  ]
+    "src/migrations/*.js"
+, "migrations/20260925064156-create-products.js", "models/product.ts"  ]
 }

@@ -1,4 +1,5 @@
 import "multer";
+import * as Sequelize from "sequelize";
 
 import type {
   ProductCategoryEnum,
@@ -6,6 +7,7 @@ import type {
 } from "#src/enums/productEnum.js";
 
 export interface ProductInterface {
+  id?: number;
   name: string;
   sku: string;
   category: ProductCategoryEnum;
@@ -20,3 +22,8 @@ export interface ProductInterface {
 export interface fileInterface {
   productImage: Express.Multer.File[];
 }
+
+export interface ProductModelInterface
+  extends
+    Sequelize.Model<ProductInterface, Partial<ProductInterface>>,
+    ProductInterface {}
