@@ -3,32 +3,39 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert("products", [
+    await queryInterface.bulkInsert("invoices", [
       {
-        name: "Wireless Noise-Canceling Headphones",
-        sku: "ELEC-HEAD-001",
-        category: "ELECTRONICS",
-        description:
-          "Over-ear bluetooth headphones with active noise cancellation.",
-        price: 199.99,
-        quantity: 50,
-        status: "IN_STOCK",
-        supplier: "TechCorp Ltd",
-        image: "uploads/productImages/headphones.jpg",
+        customer_name: "Acme Corporation",
+        email: "billing@acme.com",
+        address: "123 Business Rd, Suite 100",
+        location: "New York, NY",
+        phone_number: "+1-555-0199",
+        description: "Web Development Services - Milestone 1",
+        quantity: 1,
+        rate: 1500.00,
+        amount: 1500.00,
+        notes: "Payment due within 15 days of invoice date.",
+        issued_date: new Date("2026-09-01"),
+        due_date: new Date("2026-09-16"),
+        total: 1500.00,
         created_at: new Date(),
         updated_at: new Date(),
         deleted_at: null,
       },
       {
-        name: "Cotton Classic T-Shirt",
-        sku: "CLOT-TSHIRT-002",
-        category: "CLOTHING",
-        description: "100% organic cotton t-shirt in black.",
-        price: 24.5,
+        customer_name: "Starlight Media",
+        email: "accounts@starlight.io",
+        address: "456 Creative Ave",
+        location: "San Francisco, CA",
+        phone_number: "+1-555-0142",
+        description: "Monthly Cloud Infrastructure Maintenance",
         quantity: 5,
-        status: "LOW_STOCK",
-        supplier: "Apparel Factory",
-        image: "uploads/productImages/tshirt.jpg",
+        rate: 200.00,
+        amount: 1000.00,
+        notes: "Thank you for your business!",
+        issued_date: new Date("2026-09-10"),
+        due_date: new Date("2026-09-25"),
+        total: 1000.00,
         created_at: new Date(),
         updated_at: new Date(),
         deleted_at: null,
@@ -37,6 +44,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("products", null, {});
+    await queryInterface.bulkDelete("invoices", null, {});
   },
 };
