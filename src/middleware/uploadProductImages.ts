@@ -10,7 +10,7 @@ if (!fs.existsSync(productImageDirectory)) {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    if (file.fieldname === "productImage") {
+    if (file.fieldname === "image") {
       cb(null, productImageDirectory);
     }
   },
@@ -24,4 +24,4 @@ const storage = multer.diskStorage({
 export const uploadProductImages = multer({
   storage,
   limits: { fileSize: 5 * 1024 * 1024 }, //5mb limit
-}).fields([{ name: "productImage", maxCount: 1 }]);
+}).fields([{ name: "image", maxCount: 1 }]);

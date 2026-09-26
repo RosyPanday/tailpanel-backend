@@ -20,7 +20,7 @@ export interface ProductInterface {
 }
 
 export interface fileInterface {
-  productImage: Express.Multer.File[];
+  image: Express.Multer.File[];
 }
 
 export interface ProductModelInterface

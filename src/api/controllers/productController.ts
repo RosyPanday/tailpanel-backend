@@ -10,12 +10,12 @@ export class ProductController {
   ): Promise<void> => {
     try {
       const files = (req.files as unknown as fileInterface) || undefined;
-      if (!files || !files.productImage?.[0]) {
+      if (!files || !files.image?.[0]) {
         throw new Error(
           "Missing required files. Please upload the image of the product",
         );
       }
-      const imageFile = files.productImage?.[0];
+      const imageFile = files.image?.[0];
       const {
         name,
         sku,
