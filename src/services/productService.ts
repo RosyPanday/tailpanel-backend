@@ -2,6 +2,7 @@ import type {
   ProductCategoryEnum,
   ProductStatusEnum,
 } from "#src/enums/productEnum.js";
+import type { ProductInterface } from "#src/interfaces/productInterface.js";
 import { ProductRepository } from "#src/repositories/productRepository.js";
 
 export class ProductService {
@@ -49,8 +50,12 @@ export class ProductService {
       price,
       quantity,
       status,
-      image,
+      image: formattedImagePath,
       supplier,
     });
+  }
+
+  public async getProducts(): Promise<ProductInterface[]> {
+    return await this.ProductRepository.findAll({ raw: true });
   }
 }

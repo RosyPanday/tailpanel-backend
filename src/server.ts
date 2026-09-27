@@ -25,8 +25,8 @@ export class Server {
     this.app.use(express.json());
 
     this.app.use(
-      "/tailPanel",
-      express.static(path.join(process.cwd(), "tailPanel")),
+      "/uploads",
+      express.static(path.join(process.cwd(), "uploads")),
     );
   }
 

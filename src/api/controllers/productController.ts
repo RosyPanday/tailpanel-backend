@@ -1,4 +1,7 @@
-import type { fileInterface } from "#src/interfaces/productInterface.js";
+import type {
+  fileInterface,
+  ProductInterface,
+} from "#src/interfaces/productInterface.js";
 import { ProductService } from "#src/services/productService.js";
 import type { NextFunction, Request, Response } from "express";
 
@@ -35,8 +38,8 @@ export class ProductController {
         price,
         quantity,
         status,
-        image:imageFile.path,
-        supplier
+        image: imageFile.path,
+        supplier,
       });
 
       res.status(200).json({
@@ -45,5 +48,17 @@ export class ProductController {
     } catch (error) {
       next(error);
     }
+  };
+
+  public static getProducts = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<void> => {
+    const products = await new ProductService().getProducts();
+    res.status(200).json({
+      message: " Products fetched successfully",
+      products,
+    });
   };
 }
