@@ -1,3 +1,4 @@
+import type { InvoiceInterface } from "#src/interfaces/invoiceInterface.js";
 import { InvoiceRepository } from "#src/repositories/invoiceRepository.js";
 
 export class InvoiceService {
@@ -49,5 +50,9 @@ export class InvoiceService {
       amount,
       total,
     });
+  }
+
+  public async getInvoices(): Promise<InvoiceInterface[]> {
+    return await this.InvoiceRepository.findAll({ raw: true });
   }
 }

@@ -43,4 +43,17 @@ export class InvoiceController {
       next(error);
     }
   };
+
+
+    public static getInvoices = async (
+      req: Request,
+      res: Response,
+      next: NextFunction,
+    ): Promise<void> => {
+      const invoices = await new InvoiceService().getInvoices();
+      res.status(200).json({
+        message: "Invoices fetched successfully",
+        invoices,
+      });
+    };
 }
