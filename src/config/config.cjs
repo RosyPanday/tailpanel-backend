@@ -12,7 +12,7 @@ module.exports = {
     }
   },
   production: {
-    url: process.env.CONNECTION_STRING,
+    url: connectionString,
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
